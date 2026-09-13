@@ -40,16 +40,5 @@ pipeline {
                 }
             }
         }
-
-        stage('Run Docker Container') {
-            steps {
-                script {
-                    sh """
-                        docker run -p 5000:5000 --name "${APP_NAME}"-"main"-${BUILD_NUMBER} -d ${APP_NAME}:${BUILD_NUMBER}
-                        docker ps
-                    """
-                }
-            }
-        }
     }
 }
